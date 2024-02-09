@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Jogador {
 
     private String nome;
@@ -5,15 +7,11 @@ public class Jogador {
     private int pontuacao = 0;
     private int numeroTentativas = 0;
 
+    public Jogador(){}
+
     public Jogador(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
-    }
-
-    public Jogador(String nome, int idade, int numeroTentativas) {
-        this.nome = nome;
-        this.idade = idade;
-        this.numeroTentativas = numeroTentativas;
     }
 
     public String getNome() {
@@ -28,16 +26,16 @@ public class Jogador {
         return idade;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public int getPontuacao() {
+        return pontuacao;
     }
 
     public int getNumeroTentativas() {
         return numeroTentativas;
     }
 
-    public void setNumeroTentativas(int numeroTentativas) {
-        this.numeroTentativas = numeroTentativas;
+    public void setIdade(int idade) {
+        this.idade = idade;
     }
 
     public void adicionarPontos(int pts) {
@@ -50,5 +48,15 @@ public class Jogador {
 
     public void adicionaTentativa(int quantidade) {
         this.numeroTentativas += quantidade;
+    }
+
+    public String toString(){
+        System.out.println("*************************");
+        System.out.printf("* Nome: %s\n", getNome());
+        System.out.printf("* Idade: %s\n", getIdade());
+        System.out.printf("* Tentativas: %d\n", getNumeroTentativas());
+        System.out.printf("* Pontos: %d\n", getPontuacao());
+        System.out.println("*************************");
+        return null;
     }
 }
