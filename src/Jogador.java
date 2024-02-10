@@ -6,6 +6,7 @@ public class Jogador {
     private int idade;
     private int pontuacao = 0;
     private int numeroTentativas = 0;
+    public static ArrayList<Jogador> ranking = new ArrayList<Jogador>();
 
     public Jogador(){}
 
@@ -33,6 +34,7 @@ public class Jogador {
     public int getNumeroTentativas() {
         return numeroTentativas;
     }
+
 
     public void setIdade(int idade) {
         this.idade = idade;
