@@ -6,10 +6,19 @@ public class Jogador {
     private int idade;
     private int pontuacao = 0;
     private int numeroTentativas = 0;
-    public static ArrayList<Jogador> ranking = new ArrayList<Jogador>();
+    public static ArrayList<Jogador> listaJogadores = new ArrayList<>();
+
+    public void setListaJogadores(Jogador jogador){
+        listaJogadores.add(jogador);
+    }
+
+    public void getRanking(){
+        for (Jogador j: listaJogadores){
+            System.out.printf("%s -- %d", j.getNome(), j.getIdade());
+        }
+    }
 
     public Jogador(){}
-
     public Jogador(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
@@ -19,9 +28,7 @@ public class Jogador {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+
 
     public int getIdade() {
         return idade;
@@ -36,8 +43,10 @@ public class Jogador {
     }
 
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setIdade(int idade) {this.idade = idade;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public void adicionarPontos(int pts) {

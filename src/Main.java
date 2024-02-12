@@ -5,19 +5,22 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("\t\t-- Jo-Ken-Po --\t\t");
-        System.out.println("| [1] Novo Jogo");
+        Telas telas = new Telas();
+        int opt = telas.telaInicial();
         System.out.println();
 
-        Jogador jogador = new Jogador();
+        while (opt != 0){
+            Jogador jogador = telas.criarJogador();
 
-        System.out.print("Entre nome do Jogador: ");
-        jogador.setNome(input.nextLine());
-        System.out.print("Entre idade do Jogador: ");
-        jogador.setIdade(Integer.parseInt(input.nextLine()));
+            opt = telas.telaInicial();
+        }
 
-        jogador.toString();
+        int n = 1;
+        System.out.printf("%s | %10s | %6s", "#", "Nome", "Pts\n");
+        for (Jogador jogador : Jogador.listaJogadores) {
+            System.out.printf("%d | %10s | %d \n", n, jogador.getNome(), n);
+            n++;
+        }
+
     }
 }
