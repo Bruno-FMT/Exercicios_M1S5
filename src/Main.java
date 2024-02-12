@@ -10,17 +10,22 @@ public class Main {
         System.out.println();
 
         while (opt != 0){
-            Jogador jogador = telas.criarJogador();
+
+            switch (opt){
+                case 1:
+                    Jogador jogador = telas.criarJogador();
+                    break;
+                case 2:
+                    Jogador.getListaJogadores();
+                    break;
+                case 3:
+                    System.out.println("Muito Obrigado por Jogar!");
+                    break;
+            }
 
             opt = telas.telaInicial();
         }
-
-        int n = 1;
-        System.out.printf("%s | %10s | %6s", "#", "Nome", "Pts\n");
-        for (Jogador jogador : Jogador.listaJogadores) {
-            System.out.printf("%d | %10s | %d \n", n, jogador.getNome(), n);
-            n++;
-        }
-
+        System.out.printf("%s | %10s | %3s |\n", "#", "Nome", "Pts");
+        Jogador.rankear();
     }
 }

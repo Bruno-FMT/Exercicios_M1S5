@@ -1,3 +1,4 @@
+import java.security.SecureRandom;
 import java.util.Scanner;
 
 public class Telas {
@@ -10,6 +11,7 @@ public class Telas {
         System.out.println("|\t -- Jo-Ken-Po --\t|");
         System.out.println("*-----------------------*");
         System.out.printf("| [1] %10s\t\t|\n", "JOGAR");
+        System.out.printf("| [2] %10s\t|\n", "LISTAR JOGADORES");
         System.out.printf("| [0] %10s\t\t|\n", "SAIR");
         System.out.println("*-----------------------*");
         System.out.print("Informe a opção: ");
@@ -27,6 +29,11 @@ public class Telas {
 
         Jogador jogador = new Jogador(nomeJogador, idadeJogador);
         jogador.setListaJogadores(jogador);
+
+        int x = 30;
+        SecureRandom rand =new SecureRandom();
+        jogador.setPontuacao(rand.nextInt(x));
+
 
         return jogador;
     }

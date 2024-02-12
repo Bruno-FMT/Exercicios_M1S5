@@ -1,20 +1,35 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
-public class Jogador {
+public class Jogador implements Comparable<Jogador>{
 
     private String nome;
     private int idade;
     private int pontuacao = 0;
     private int numeroTentativas = 0;
     public static ArrayList<Jogador> listaJogadores = new ArrayList<>();
+    public static ArrayList<String> rankig = new ArrayList<>();
+    private static int contadorPosicao = 1;
 
     public void setListaJogadores(Jogador jogador){
         listaJogadores.add(jogador);
     }
 
-    public void getRanking(){
-        for (Jogador j: listaJogadores){
-            System.out.printf("%s -- %d", j.getNome(), j.getIdade());
+    public static void getListaJogadores(){
+        int n = 1;
+        System.out.printf("| %10s | %s |\n", "Nome", "Idade");
+        for (Jogador jogador : Jogador.listaJogadores) {
+            System.out.printf("| %10s | %5d |\n", jogador.getNome(), jogador.getIdade());
+            n++;
+        }
+    }
+
+    public static void rankear(){
+        Collections.sort(listaJogadores);
+
+        for (Jogador j : listaJogadores){
+            System.out.println(j);
         }
     }
 
@@ -27,8 +42,6 @@ public class Jogador {
     public String getNome() {
         return nome;
     }
-
-
 
     public int getIdade() {
         return idade;
@@ -49,6 +62,10 @@ public class Jogador {
         this.nome = nome;
     }
 
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
+    }
+
     public void adicionarPontos(int pts) {
         this.pontuacao += pts;
     }
@@ -62,12 +79,18 @@ public class Jogador {
     }
 
     public String toString(){
-        System.out.println("*************************");
-        System.out.printf("* Nome: %s\n", getNome());
-        System.out.printf("* Idade: %s\n", getIdade());
-        System.out.printf("* Tentativas: %d\n", getNumeroTentativas());
-        System.out.printf("* Pontos: %d\n", getPontuacao());
-        System.out.println("*************************");
-        return null;
+        System.out.printf("%s | %10s | %3d |\n", contadorPosicao, getNome(), getPontuacao());
+        contadorPosicao++;
+        return "*********************";
+    }
+
+    @Override
+    public int compareTo(Jogador outroJogador) {
+        if (this.pontuacao > outroJogador.getPontuacao()){
+            return -1;
+        } if (this.pontuacao < outroJogador.getPontuacao()){
+            return 1;
+        }
+        return 0;
     }
 }
