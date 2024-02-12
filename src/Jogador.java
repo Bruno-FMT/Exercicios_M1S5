@@ -9,6 +9,7 @@ public class Jogador implements Comparable<Jogador>{
     private int pontuacao = 0;
     private int numeroTentativas = 0;
     public static ArrayList<Jogador> listaJogadores = new ArrayList<>();
+    public static ArrayList<String> nomeJogadores = new ArrayList<>();
     public static ArrayList<String> rankig = new ArrayList<>();
     private static int contadorPosicao = 1;
 
@@ -16,21 +17,24 @@ public class Jogador implements Comparable<Jogador>{
         listaJogadores.add(jogador);
     }
 
-    public static void getListaJogadores(){
+    public static void getListaJogadores() throws InterruptedException {
         int n = 1;
-        System.out.printf("| %10s | %s |\n", "Nome", "Idade");
+        System.out.printf("\n\n| %10s | %s |\n", "Nome", "Idade");
         for (Jogador jogador : Jogador.listaJogadores) {
             System.out.printf("| %10s | %5d |\n", jogador.getNome(), jogador.getIdade());
             n++;
         }
+        Thread.sleep(5000);
     }
 
-    public static void rankear(){
+    public static void rankear() throws InterruptedException {
         Collections.sort(listaJogadores);
 
         for (Jogador j : listaJogadores){
             System.out.println(j);
         }
+
+        Thread.sleep(4000);
     }
 
     public Jogador(){}

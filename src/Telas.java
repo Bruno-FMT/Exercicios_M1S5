@@ -22,8 +22,14 @@ public class Telas {
     public Jogador criarJogador(){
 
         Scanner input = new Scanner(System.in);
-        System.out.print("Nome: ");
-        String nomeJogador = input.nextLine();
+        String nomeJogador;
+        boolean valida;
+        do {
+            System.out.print("Nome: ");
+            nomeJogador = input.nextLine();
+            valida = exiteJogador(nomeJogador);
+        } while (valida == false);
+
         System.out.print("Idade: ");
         int idadeJogador = Integer.parseInt(input.nextLine());
 
@@ -36,5 +42,15 @@ public class Telas {
 
 
         return jogador;
+    }
+
+    public boolean exiteJogador(String nomeJogador) {
+        if (Jogador.nomeJogadores.contains(nomeJogador)){
+            System.out.println("Jogador já existe.");
+            return false;
+        } else {
+            Jogador.nomeJogadores.add(nomeJogador);
+            return true;
+        }
     }
 }

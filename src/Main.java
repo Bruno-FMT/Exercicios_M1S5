@@ -3,7 +3,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Telas telas = new Telas();
         int opt = telas.telaInicial();
@@ -26,6 +26,7 @@ public class Main {
             opt = telas.telaInicial();
         }
         System.out.printf("%s | %10s | %3s |\n", "#", "Nome", "Pts");
+        System.out.println("*********************");
         Jogador.rankear();
     }
 }
