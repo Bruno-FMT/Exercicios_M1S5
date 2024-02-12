@@ -12,6 +12,7 @@ public class Telas {
         System.out.println("*-----------------------*");
         System.out.printf("| [1] %10s\t\t|\n", "JOGAR");
         System.out.printf("| [2] %10s\t|\n", "LISTAR JOGADORES");
+        System.out.printf("| [3] %10s\t|\n", "RANKING JOGADORES");
         System.out.printf("| [0] %10s\t\t|\n", "SAIR");
         System.out.println("*-----------------------*");
         System.out.print("Informe a opção: ");
