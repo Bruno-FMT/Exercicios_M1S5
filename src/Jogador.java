@@ -7,7 +7,7 @@ public class Jogador implements Comparable<Jogador>{
     private String nome;
     private int idade;
     private int pontuacao = 0;
-    private int numeroTentativas = 0;
+    private static int numeroTentativas = 0;
     public static ArrayList<Jogador> listaJogadores = new ArrayList<>();
     public static ArrayList<String> nomeJogadores = new ArrayList<>();
     public static ArrayList<String> rankig = new ArrayList<>();
@@ -70,16 +70,16 @@ public class Jogador implements Comparable<Jogador>{
         this.pontuacao = pontuacao;
     }
 
-    public void adicionarPontos(int pts) {
-        this.pontuacao += pts;
+    public void adicionarPontos() {
+        this.pontuacao++;
     }
 
-    public void perderPontos(int pts) {
-        this.pontuacao -= pts;
+    public void perderPontos() {
+        this.pontuacao--;
     }
 
-    public void adicionaTentativa(int quantidade) {
-        this.numeroTentativas += quantidade;
+    public void adicionaTentativa() {
+        this.numeroTentativas++;
     }
 
     public String toString(){

@@ -36,11 +36,6 @@ public class Telas {
         Jogador jogador = new Jogador(nomeJogador, idadeJogador);
         jogador.setListaJogadores(jogador);
 
-        int x = 30;
-        SecureRandom rand =new SecureRandom();
-        jogador.setPontuacao(rand.nextInt(x));
-
-
         return jogador;
     }
 
@@ -50,6 +45,19 @@ public class Telas {
             return false;
         } else {
             Jogador.nomeJogadores.add(nomeJogador);
+            return true;
+        }
+    }
+
+    public static boolean continuar() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("[1] para continuar ou [0] para sair: ");
+
+        int opt = Integer.parseInt(input.nextLine());
+
+        if(opt == 0) {
+            return false;
+        } else {
             return true;
         }
     }
